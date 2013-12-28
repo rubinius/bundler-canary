@@ -1,0 +1,21 @@
+language: ruby
+env:
+  - BUNDLER_VERSION=1.3.5
+  - BUNDLER_VERSION=1.5.0
+  - BUNDLER_VERSION=1.5.1
+  - BUNDLER_VERSION=1.3.5 BUNDLER_ARGS=--standalone
+  - BUNDLER_VERSION=1.5.0 BUNDLER_ARGS=--standalone
+  - BUNDLER_VERSION=1.5.1 BUNDLER_ARGS=--standalone
+  - BUNDLER_VERSION=1.3.5 BUNDLER_ARGS=--local
+  - BUNDLER_VERSION=1.5.0 BUNDLER_ARGS=--local
+  - BUNDLER_VERSION=1.5.1 BUNDLER_ARGS=--local
+rvm:
+  - rbx
+before_install:
+  - mkdir -p vendor/cache
+  - cd vendor/cache
+  - gem fetch rubinius-bundler-canary
+before_script: gem install bundler -v $BUNDLER_VERSION
+script:
+  - bundle install $BUNDLER_ARGS
+  - rubinius-bundler-canary
