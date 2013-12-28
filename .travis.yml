@@ -17,5 +17,5 @@ before_install:
   - gem fetch rubinius-bundler-canary
 before_script: gem install bundler -v $BUNDLER_VERSION
 script:
-  - bundle install $BUNDLER_ARGS
+  - bundle install rubinius-bundler-canary $BUNDLER_ARGS
   - rubinius-bundler-canary
