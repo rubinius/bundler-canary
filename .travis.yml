@@ -15,7 +15,9 @@ before_install:
   - mkdir -p vendor/cache
   - cd vendor/cache
   - gem fetch rubinius-bundler-canary
-before_script: gem install bundler -v $BUNDLER_VERSION
+before_script:
+  - gem uninstall --force bundler
+  - gem install bundler -v $BUNDLER_VERSION
 script:
   - bundle --version
   - bundle install $BUNDLER_ARGS
