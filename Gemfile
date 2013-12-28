@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rake'
+gem 'rubinius-bundler-canary', '~> 1.0'
 
 platforms :rbx do
   gem 'rubysl'
