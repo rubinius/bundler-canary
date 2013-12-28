@@ -16,7 +16,8 @@ before_install:
   - cd vendor/cache
   - gem fetch rubinius-bundler-canary
 before_script:
-  - gem uninstall --force bundler
+  - export RBX_VERSION=`ruby -e "puts Rubinius::VERSION"`
+  - gem uninstall -a -i /home/travis/.rvm/gems/rbx-$RBX_VERSION@global bundler
   - gem install bundler -v $BUNDLER_VERSION
 script:
   - bundle --version
