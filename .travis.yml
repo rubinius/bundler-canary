@@ -16,8 +16,7 @@ before_install:
   - cd vendor/cache
   - gem fetch rubinius-bundler-canary
 before_script:
-  - rvm use gemset global
-  - echo y | gem uninstall bundler
+  - rvm @global do gem uninstall bundler -ax
   - gem install bundler -v $BUNDLER_VERSION
 script:
   - bundle --version
