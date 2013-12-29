@@ -21,4 +21,4 @@ before_script:
 script:
   - bundle --version
   - bundle install $BUNDLER_ARGS
-  - rubinius-bundler-canary
+  - bundle exec rubinius-bundler-canary
