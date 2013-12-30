@@ -10,14 +10,9 @@ env:
   - BUNDLER_VERSION=1.5.1 BUNDLER_ARGS=--local
 rvm:
   - rbx
-before_install:
-  - mkdir -p vendor/cache
-  - cd vendor/cache
-  - gem fetch rubinius-bundler-canary
 before_script:
   - rvm @global do gem uninstall bundler -ax
   - gem install bundler -v $BUNDLER_VERSION
 script:
   - bundle --version
-  - bundle install $BUNDLER_ARGS
-  - bundle exec rubinius-bundler-canary
+  - rake
